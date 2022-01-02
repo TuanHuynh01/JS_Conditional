@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tính điểm ĐH khối D</h2>
+    Môn Toán: <input type="text"  name="" id="Toan" size="10"><br><br>
+    Môn Văn: <input type="text" name="" id="Van" size="10"><br><br>
+    Môn Anh: <input type="text" name="" id="Anh" size="10"><br><br>
+    Khu vực: 
+    <select name="" id="KhuVuc">
+        <option value="KV1">KV1</option>
+        <option value="KV2">KV2</option>
+        <option value="KV2-NT">KV2-NT</option>
+        <option value="KV3">KV3</option>
+    </select><br><br>
+    <button onclick="Tinhdiem()">Tính điểm</button>
+    <p id="hienthi"></p>
+</body> 
+</html> 
+<script>
+    function Tinhdiem() {
+        let monToan = parseFloat(document.getElementById('Toan').value);
+        let monVan = parseFloat(document.getElementById('Van').value);
+        let monAnh = parseFloat(document.getElementById('Anh').value);
+        let KhuVuc = document.getElementById('KhuVuc').value;
+        let Tongdiem = monAnh + monToan + monVan;
+        let diemCong
+        let HienThi = document.getElementById("hienthi")
+
+        switch (KhuVuc) {
+            case "KV1":
+                diemCong = Tongdiem + 0.75;
+                break;
+            case "KV2":
+                diemCong = Tongdiem + 0.5;
+                break;
+            case "KV2-NT": 
+                diemCong = Tongdiem + 0.25;
+            case "KV3": 
+                diemCong = Tongdiem;
+                break;
+        }
+        HienThi.innerHTML = "Tổng điểm ĐH khối D của bạn là: " + diemCong
+
+    }
+</script>
